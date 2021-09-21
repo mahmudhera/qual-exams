@@ -1,0 +1,30 @@
+Algo syllabus
+---------------
+1.	 Big-O notation.[KT Chapter 2]
+2.   Data Structures (e.g., stacks, queues, heaps, search trees, hash tables) 
+3.   Algorithms with numbers (e.g., RSA, universal hashing) [DPV Chapter 1]
+4.   Recursion, Divide & conquer, Recurrences [DPV Chapter 2] [KT Chapter 5]
+5.   Graph algorithms (e.g., search, connectivity, path, spanning trees, flows) [DPV Chapter 3,4,6.6,7.2] [KT Chapter 3,7]
+7.   Dynamic Programming [DPV Chapter 6] [KT Chapter 6]
+6.   Greedy algorithms [DPV Chapter 5] [KT Chapter 4]
+8.   Linear Programming [DPV Chapter 7]
+
+
+Theory Syllabus
+--------------------
+1. logic
+2. methods of proof
+3. sequences, recursions and induction
+4. combinatorics, combinatorial probability
+5. functions, pigeonhole principle, relations
+6. modular arithmetic
+
+
+Solve:
+
+1. all homeworks
+	1.1 Snigdha: Madhuri
+	1.2 Snigdha: Shao
+	1.3 Amatur
+2. all hard copy questions
+3. all previous year questions

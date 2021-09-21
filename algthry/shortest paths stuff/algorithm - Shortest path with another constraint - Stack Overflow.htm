@@ -1,0 +1,828 @@
+<!DOCTYPE html>
+<!-- saved from url=(0082)https://stackoverflow.com/questions/48845547/shortest-path-with-another-constraint -->
+<html itemscope="" itemtype="http://schema.org/QAPage" class="html__responsive"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+        <title>algorithm - Shortest path with another constraint - Stack Overflow</title>
+        <link rel="shortcut icon" href="https://cdn.sstatic.net/Sites/stackoverflow/img/favicon.ico?v=4f32ecc8f43d">
+        <link rel="apple-touch-icon image_src" href="https://cdn.sstatic.net/Sites/stackoverflow/img/apple-touch-icon.png?v=c78bd457575a">
+        <link rel="search" type="application/opensearchdescription+xml" title="Stack Overflow" href="https://stackoverflow.com/opensearch.xml">
+        <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0, minimum-scale=1.0">
+
+
+        <meta property="og:type" content="website">
+        <meta property="og:url" content="https://stackoverflow.com/questions/48845547/shortest-path-with-another-constraint">
+        <meta property="og:site_name" content="Stack Overflow">
+        <meta property="og:image" itemprop="image primaryImageOfPage" content="https://cdn.sstatic.net/Sites/stackoverflow/img/apple-touch-icon@2.png?v=73d79a89bded">
+        <meta name="twitter:card" content="summary">
+        <meta name="twitter:domain" content="stackoverflow.com">
+        <meta name="twitter:title" property="og:title" itemprop="name" content="Shortest path with another constraint">
+        <meta name="twitter:description" property="og:description" itemprop="description" content="Given a weighted undirected graph, I need to find the shortest path between two nodes, a classical shortest path problem actually. But there is one more constraint : Each node contains a &quot;reduction&quot; ">
+            <script src="./algorithm - Shortest path with another constraint - Stack Overflow_files/jquery.min.js"></script>
+        <script src="./algorithm - Shortest path with another constraint - Stack Overflow_files/stub.en.js"></script>
+    
+    <link rel="stylesheet" type="text/css" href="./algorithm - Shortest path with another constraint - Stack Overflow_files/stacks.css">
+    <link rel="stylesheet" type="text/css" href="./algorithm - Shortest path with another constraint - Stack Overflow_files/primary.css">
+
+    
+            <link rel="alternate" type="application/atom+xml" title="Feed for question &#39;Shortest path with another constraint&#39;" href="https://stackoverflow.com/feeds/question/48845547">
+            <meta name="twitter:app:country" content="US">
+            <meta name="twitter:app:name:iphone" content="Stack Exchange iOS">
+            <meta name="twitter:app:id:iphone" content="871299723">
+            <meta name="twitter:app:url:iphone" content="se-zaphod://stackoverflow.com/questions/48845547/shortest-path-with-another-constraint">
+            <meta name="twitter:app:name:ipad" content="Stack Exchange iOS">
+            <meta name="twitter:app:id:ipad" content="871299723">
+            <meta name="twitter:app:url:ipad" content="se-zaphod://stackoverflow.com/questions/48845547/shortest-path-with-another-constraint">
+            <meta name="twitter:app:name:googleplay" content="Stack Exchange Android">
+            <meta name="twitter:app:url:googleplay" content="http://stackoverflow.com/questions/48845547/shortest-path-with-another-constraint">
+            <meta name="twitter:app:id:googleplay" content="com.stackexchange.marvin">
+        <script>
+            StackExchange.ready(function () {
+                    
+                    StackExchange.using("snippets", function () {
+                        StackExchange.snippets.initSnippetRenderer();
+                    });
+                    
+
+                StackExchange.using("postValidation", function () {
+                    StackExchange.postValidation.initOnBlurAndSubmit($('#post-form'), 2, 'answer');
+                });
+
+                
+                StackExchange.question.init({showAnswerHelp:true,totalCommentCount:19,shownCommentCount:5,highlightColor:'#F4A83D',backgroundColor:'#FFF',questionId:48845547});
+
+                styleCode();
+
+                    StackExchange.realtime.subscribeToQuestion('1', '48845547');
+                                                    StackExchange.using("gps", function () { StackExchange.gps.trackOutboundClicks('#content', '.post-text'); });
+
+            });
+        </script>
+
+        
+        
+        
+        
+        
+        
+        
+
+
+        <script>
+        StackExchange.init({"locale":"en","serverTime":1569275991,"routeName":"Questions/Show","stackAuthUrl":"https://stackauth.com","networkMetaHostname":"meta.stackexchange.com","site":{"name":"Stack Overflow","description":"Q&A for professional and enthusiast programmers","isNoticesTabEnabled":true,"enableNewTagCreationWarning":true,"insertSpaceAfterNameTabCompletion":false,"id":1,"childUrl":"https://meta.stackoverflow.com","enableSocialMediaInSharePopup":true,"protocol":"https"},"user":{"fkey":"9391335a41b1dabd60d4b018289f99225c3d6bbc3a8f0eeb2516f283678b01e2","tid":"f32725d2-7d8f-a4f8-f555-bb9c60d7c3bb","rep":0,"isAnonymous":true,"isAnonymousNetworkWide":true,"ab":{"question_show_tweaks":{"v":"QaRefreshPartOne","g":1}}},"events":{"postType":{"question":1},"postEditionSection":{"title":1,"body":2,"tags":3}},"story":{"minCompleteBodyLength":75,"likedTagsMaxLength":300,"dislikedTagsMaxLength":300},"jobPreferences":{"maxNumDeveloperRoles":2,"maxNumIndustries":4},"svgIconPath":"https://cdn.sstatic.net/Img/svg-icons","svgIconHash":"20796a49765b"}, {"userProfile":{"openGraphAPIKey":"4a307e43-b625-49bb-af15-ffadf2bda017"},"userMessaging":{},"tags":{},"snippets":{"snippetsEnabled":true,"renderDomain":"stacksnippets.net"},"slack":{"sidebarAdDismissCookie":"slack-sidebar-ad"},"site":{"allowImageUploads":true,"enableUserHovercards":true,"styleCode":true,"enableImgurHttps":true,"forceHttpsImages":true},"questions":{},"paths":{},"monitoring":{"clientTimingsAbsoluteTimeout":30000,"clientTimingsDebounceTimeout":1000},"mentions":{"maxNumUsersInDropdown":50},"markdown":{"asteriskIntraWordEmphasis":true},"flags":{"allowRetractingFlags":true,"allowRetractingCommentFlags":true},"comments":{},"accounts":{"currentPasswordRequiredForChangingStackIdPassword":true}});
+        StackExchange.using.setCacheBreakers({"js/prettify-full.en.js":"a8b908eeea54","js/moderator.en.js":"f847c74e543a","js/full-anon.en.js":"c006bbfc2cca","js/full.en.js":"5a77bc1670ee","js/wmd.en.js":"a4faa0790767","js/mobile.en.js":"6bc1dfc76422","js/help.en.js":"4c1862a0d3b9","js/tageditor.en.js":"457b3feb45a8","js/tageditornew.en.js":"f227de2f1270","js/inline-tag-editing.en.js":"31881eb45a3d","js/revisions.en.js":"9042f0dc9de0","js/review.en.js":"cb1b5a25ebbf","js/tagsuggestions.en.js":"9b2c5d9791d2","js/post-validation.en.js":"a00d231aa7fe","js/explore-qlist.en.js":"222b04ca33bc","js/events.en.js":"5f71ea40a116","js/keyboard-shortcuts.en.js":"3c114f576b2c","js/adops.en.js":"6b9883f0531e","js/begin-edit-event.en.js":"b893cbe8c7a7","js/stacks-polyfills.en.js":"c414492b7014","js/ask.en.js":"4c4b9824f89e","js/question-editor.en.js":"","js/snippet-javascript-codemirror.en.js":"c7314c2f1527"});
+        StackExchange.using("gps", function() {
+             StackExchange.gps.init(true);
+        });
+    </script>
+    <noscript id="noscript-css"><style>body,.top-bar{margin-top:1.9em}</style></noscript>
+    </head>
+        <body class="question-page unified-theme">
+    <div id="notify-container"></div>
+    <div id="custom-header"></div>
+
+
+
+
+<header class="top-bar js-top-bar top-bar__network _fixed">
+    <div class="-container" role="menubar">
+        <div class="-main">
+                <a href="https://stackoverflow.com/questions/48845547/shortest-path-with-another-constraint#" class="left-sidebar-toggle p0 ai-center jc-center js-left-sidebar-toggle" role="menuitem" aria-haspopup="true" aria-controls="left-sidebar" aria-expanded="false"><span class="ps-relative"></span></a>
+                <div class="topbar-dialog leftnav-dialog js-leftnav-dialog dno">
+                    <div class="left-sidebar js-unpinned-left-sidebar" data-can-be="left-sidebar" data-is-here-when="sm"></div>
+                </div>
+                                <a href="https://stackoverflow.com/" class="-logo js-gps-track" data-gps-track="top_nav.click({is_current:false, location:2, destination:8})">
+                        <span class="-img _glyph">Stack Overflow</span>
+                    </a>
+
+
+
+        </div>
+
+            <ol class="list-reset grid gs4" role="presentation">
+                <li class="grid--cell">
+                    <a href="https://stackoverflow.com/questions/48845547/shortest-path-with-another-constraint#" class="-marketing-link js-gps-track js-products-menu" aria-controls="products-popover" data-controller="s-popover" data-action="s-popover#toggle" data-s-popover-placement="bottom" data-gps-track="top_nav.products.click({location:2, destination:1})" data-ga="[&quot;top navigation&quot;,&quot;products menu click&quot;,null,null,null]">
+                        Products
+                    </a>
+                </li>
+
+                    <li class="grid--cell sm:d-none">
+                        <a href="https://stackoverflow.com/teams/customers" class="-marketing-link js-gps-track" data-gps-track="top_nav.products.click({location:2, destination:7})" data-ga="[&quot;top navigation&quot;,&quot;customers menu click&quot;,null,null,null]">Customers</a>
+                    </li>
+                    <li class="grid--cell sm:d-none">
+                        <a href="https://stackoverflow.com/teams/use-cases" class="-marketing-link js-gps-track" data-gps-track="top_nav.products.click({location:2, destination:8})" data-ga="[&quot;top navigation&quot;,&quot;use cases menu click&quot;,null,null,null]">Use cases</a>
+                    </li>
+            </ol>
+            <div class="s-popover ws2 p6" id="products-popover" role="menu" aria-hidden="true">
+                <div class="s-popover--arrow"></div>
+                <ol class="list-reset s-anchors s-anchors__inherit">
+                    <li>
+                        <a href="https://stackoverflow.com/questions" class="d-block py6 px6 bar-sm h:bg-orange-500 h:fc-white js-gps-track" data-gps-track="top_nav.products.click({location:2, destination:2})" data-ga="[&quot;top navigation&quot;,&quot;public qa submenu click&quot;,null,null,null]">
+                            <span class="fs-body1 d-block">Stack Overflow</span>
+                            <span class="fs-caption d-block o70">Public questions and answers</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://stackoverflow.com/teams" class="d-block py6 px6 bar-sm h:bg-orange-500 h:fc-white js-gps-track" data-gps-track="top_nav.products.click({location:2, destination:3})" data-ga="[&quot;top navigation&quot;,&quot;teams submenu click&quot;,null,null,null]">
+                            <span class="fs-body1 d-block">Teams</span>
+                            <span class="fs-caption d-block o70">Private questions and answers for your team</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://stackoverflow.com/enterprise" class="d-block py6 px6 bar-sm h:bg-orange-500 h:fc-white js-gps-track" data-gps-track="top_nav.products.click({location:2, destination:4})" data-ga="[&quot;top navigation&quot;,&quot;enterprise submenu click&quot;,null,null,null]">
+                            <span class="fs-body1 d-block">Enterprise</span>
+                            <span class="fs-caption d-block o70">Private self-hosted questions and answers for your enterprise</span>
+                        </a>
+                    </li>
+                    <li class="bt bc-black-3 mln6 mrn6 mt6 pt6 px6">
+                        <a href="https://www.stackoverflowbusiness.com/talent" class="d-block py6 px6 bar-sm h:bg-orange-500 h:fc-white js-gps-track" data-gps-track="top_nav.products.click({location:2, destination:5})" data-ga="[&quot;top navigation&quot;,&quot;talent submenu click&quot;,null,null,null]">
+                            <span class="fs-body1 d-block">Talent</span>
+                            <span class="fs-caption d-block o70">Hire technical talent</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://www.stackoverflowbusiness.com/advertising" class="d-block py6 px6 bar-sm h:bg-orange-500 h:fc-white js-gps-track" data-gps-track="top_nav.products.click({location:2, destination:6})" data-ga="[&quot;top navigation&quot;,&quot;advertising submenu click&quot;,null,null,null]">
+                            <span class="fs-body1 d-block">Advertising</span>
+                            <span class="fs-caption d-block o70">Reach developers worldwide</span>
+                        </a>
+                    </li>
+
+                </ol>
+            </div>
+
+            <form id="search" role="search" action="https://stackoverflow.com/search" method="get" class="searchbar js-searchbar " autocomplete="off">
+                    <div class="ps-relative">
+                        <input name="q" type="text" placeholder="Search…" value="" autocomplete="off" maxlength="240" class="s-input s-input__search js-search-field " aria-label="Search" aria-controls="top-search" data-controller="s-popover" data-action="focus-&gt;s-popover#show" data-s-popover-placement="bottom-start">
+                        <svg aria-hidden="true" class="svg-icon s-input-icon s-input-icon__search iconSearch" width="18" height="18" viewBox="0 0 18 18"><path d="M18 16.5l-5.14-5.18h-.35a7 7 0 1 0-1.19 1.19v.35L16.5 18l1.5-1.5zM12 7A5 5 0 1 1 2 7a5 5 0 0 1 10 0z"></path></svg>
+<div class="s-popover p0 wmx100 wmn4 sm:wmn-initial js-top-search-popover s-popover--arrow__tl" id="top-search" role="menu">
+    <div class="js-spinner p24 grid ai-center jc-center d-none">
+        <div class="s-spinner s-spinner__sm fc-orange-400">
+            <div class="v-visible-sr">Loading…</div>
+        </div>
+    </div>
+
+    <span class="v-visible-sr js-screen-reader-info"></span>
+    <div class="js-ac-results overflow-y-auto hmx3 d-none"></div>
+
+    <div class="js-search-hints" aria-describedby="Tips for searching"></div>
+</div>
+                    </div>
+            </form>
+
+        
+
+
+
+
+
+<ol class="-secondary js-secondary-topbar-links drop-icons-responsively user-logged-out" role="presentation">
+        <li class="-item searchbar-trigger js-searchbar-trigger"><a href="https://stackoverflow.com/questions/48845547/shortest-path-with-another-constraint#" class="-link" role="button" aria-label="Search" aria-haspopup="true" aria-controls="search" title="Click to show search"><svg aria-hidden="true" class="svg-icon iconSearch" width="18" height="18" viewBox="0 0 18 18"><path d="M18 16.5l-5.14-5.18h-.35a7 7 0 1 0-1.19 1.19v.35L16.5 18l1.5-1.5zM12 7A5 5 0 1 1 2 7a5 5 0 0 1 10 0z"></path></svg></a></li>
+        
+            <li class="-ctas">
+                        <a href="https://stackoverflow.com/users/login?ssrc=head&amp;returnurl=https%3a%2f%2fstackoverflow.com%2fquestions%2f48845547%2fshortest-path-with-another-constraint" class="login-link s-btn btn-topbar-clear py8 js-gps-track" rel="nofollow" data-gps-track="login.click" data-ga="[&quot;top navigation&quot;,&quot;login button click&quot;,null,null,null]">Log in</a>
+                        <a href="https://stackoverflow.com/users/signup?ssrc=head&amp;returnurl=%2fusers%2fstory%2fcurrent" class="login-link s-btn s-btn__primary py8 btn-topbar-primary" rel="nofollow" data-ga="[&quot;sign up&quot;,&quot;Sign Up Navigation&quot;,&quot;Header&quot;,null,null]">Sign up</a>
+
+            </li>
+
+    <li class="js-topbar-dialog-corral" role="presentation">
+
+
+    <div class="topbar-dialog siteSwitcher-dialog dno" role="menu">
+        <div class="header">
+            <h3><a href="https://stackoverflow.com/">current community</a>
+            </h3>
+        </div>
+        <div class="modal-content current-site-container">
+            <ul class="current-site">
+                    <li class="grid">
+                            <div class="fl1">
+            <a href="https://stackoverflow.com/" class="current-site-link site-link js-gps-track grid gs8 gsx" data-id="1" data-gps-track="site_switcher.click({ item_type:3 })">
+        <div class="favicon favicon-stackoverflow site-icon grid--cell" title="Stack Overflow"></div>
+        <span class="grid--cell fl1">
+            Stack Overflow
+        </span>
+    </a>
+
+    </div>
+    <div class="related-links">
+            <a href="https://stackoverflow.com/help" class="js-gps-track" data-gps-track="site_switcher.click({ item_type:14 })">help</a>
+                    <a href="https://chat.stackoverflow.com/" class="js-gps-track" data-gps-track="site_switcher.click({ item_type:6 })">chat</a>
+            </div>
+
+                    </li>
+                    <li class="related-site grid">
+                            <div class="L-shaped-icon-container">
+        <span class="L-shaped-icon"></span>
+    </div>
+
+                            <a href="https://meta.stackoverflow.com/" class="site-link js-gps-track grid gs8 gsx" data-id="552" data-gps-track="site.switch({ target_site:552, item_type:3 }),site_switcher.click({ item_type:4 })">
+        <div class="favicon favicon-stackoverflowmeta site-icon grid--cell" title="Meta Stack Overflow"></div>
+        <span class="grid--cell fl1">
+            Meta Stack Overflow
+        </span>
+    </a>
+
+                    </li>
+            </ul>
+        </div>
+
+        <div class="header" id="your-communities-header">
+            <h3>
+your communities            </h3>
+
+        </div>
+        <div class="modal-content" id="your-communities-section">
+
+                <div class="call-to-login">
+<a href="https://stackoverflow.com/users/signup?ssrc=site_switcher&amp;returnurl=%2fusers%2fstory%2fcurrent" class="login-link js-gps-track" data-gps-track="site_switcher.click({ item_type:10 })">Sign up</a> or <a href="https://stackoverflow.com/users/login?ssrc=site_switcher&amp;returnurl=https%3a%2f%2fstackoverflow.com%2fquestions%2f48845547%2fshortest-path-with-another-constraint" class="login-link js-gps-track" data-gps-track="site_switcher.click({ item_type:11 })">log in</a> to customize your list.
+                </div>
+        </div>
+
+        <div class="header">
+            <h3><a href="https://stackexchange.com/sites">more stack exchange communities</a>
+            </h3>
+            <a href="https://stackoverflow.blog/" class="fr">company blog</a>
+        </div>
+        <div class="modal-content">
+                <div class="child-content"></div>
+        </div>        
+    </div>
+    </li>
+</ol>
+
+    </div>
+</header>
+    <div id="js-gdpr-consent-banner" class="p16 bg-black-700 ff-sans fc-white ps-fixed b0 l0 r0 z-banner" role="banner" aria-hidden="false">
+        <div class="wmx8 mx-auto grid jc-center" role="alertdialog" aria-describedby="notice-message">
+            <div class="grid--cell mr12" aria-label="notice-message">
+                <p class="mb0 lh-lg">
+                    By using our site, you acknowledge that you have read and understand our <a class="s-link s-link__inherit td-underline fc-white" target="_blank" href="https://stackoverflow.com/legal/cookie-policy">Cookie Policy</a>, <a class="s-link s-link__inherit td-underline fc-white" target="_blank" href="https://stackoverflow.com/legal/privacy-policy">Privacy Policy</a>, and our <a class="s-link s-link__inherit td-underline fc-white" target="_blank" href="https://stackoverflow.com/legal/terms-of-service/public">Terms of Service</a>.
+                </p>
+            </div>
+            <a class="grid--cell fc-white js-notice-close" aria-label="notice-dismiss">
+                <svg aria-hidden="true" class="svg-icon m0 iconClear" width="18" height="18" viewBox="0 0 18 18"><path d="M15 4.41L13.59 3 9 7.59 4.41 3 3 4.41 7.59 9 3 13.59 4.41 15 9 10.41 13.59 15 15 13.59 10.41 9 15 4.41z"></path></svg>
+            </a>
+        </div>
+    </div>
+
+    <script>
+        StackExchange.ready(function () { StackExchange.topbar.init({ observeSize: true }); });
+        StackExchange.scrollPadding.setPaddingTop(50, 10);     </script>
+
+
+
+
+
+
+    <div class="container">
+
+
+
+
+
+
+<div id="left-sidebar" data-is-here-when="md lg" class="left-sidebar js-pinned-left-sidebar">
+    <div class="left-sidebar--sticky-container js-sticky-leftnav">
+            <nav role="navigation">
+                <ol class="nav-links">
+                        <li>
+        <a href="https://stackoverflow.com/" class="pl8 js-gps-track nav-links--link" data-gps-track="top_nav.click({is_current:false, location:2, destination:8})">
+Home        </a>
+    </li>
+
+                    <li>
+                        <ol class="nav-links">
+                                <li class="fs-fine tt-uppercase ml8 mt16 mb4 fc-light">Public</li>
+                                <li class=" youarehere">
+        <a id="nav-questions" href="https://stackoverflow.com/questions" class="pl8 js-gps-track nav-links--link -link__with-icon" data-gps-track="top_nav.click({is_current:true, location:2, destination:1})">
+<svg aria-hidden="true" class="svg-icon iconGlobe" width="18" height="18" viewBox="0 0 18 18"><path d="M9 1a8 8 0 1 0 0 16A8 8 0 0 0 9 1zM8 15.32a6.4 6.4 0 0 1-5.23-7.75L7 11.68v.8c0 .88.12 1.32 1 1.32v1.52zm5.72-2c-.2-.66-1-1.32-1.72-1.32h-1v-2c0-.44-.56-1-1-1H6V7h1c.44 0 1-.56 1-1V5h2c.88 0 1.4-.72 1.4-1.6v-.33a6.4 6.4 0 0 1 2.32 10.24v.01z"></path></svg>                <span class="-link--channel-name">Stack Overflow</span>
+        </a>
+    </li>
+
+    <li>
+        <a id="nav-tags" href="https://stackoverflow.com/tags" class=" js-gps-track nav-links--link" data-gps-track="top_nav.click({is_current:false, location:2, destination:2})">
+Tags        </a>
+    </li>
+    <li>
+        <a id="nav-users" href="https://stackoverflow.com/users" class=" js-gps-track nav-links--link" data-gps-track="top_nav.click({is_current:false, location:2, destination:3})">
+Users        </a>
+    </li>
+    <li>
+        <a id="nav-jobs" href="https://stackoverflow.com/jobs?so_medium=StackOverflow&amp;so_source=SiteNav" class=" js-gps-track nav-links--link" data-gps-track="top_nav.click({is_current:false, location:2, destination:6})">
+Jobs        </a>
+    </li>
+                                                    </ol>
+                    </li>
+                        <li>
+                            <ol class="nav-links">
+                                    <li class="grid ai-center jc-space-between ml8 mt24 mb4">
+                                        <div class="grid--cell tt-uppercase fs-fine fc-light">Teams</div>
+                                        <div class="grid--cell fs-fine fc-light mr4">
+                                            <a href="javascript:void(0)" class="s-link s-link__inherit js-gps-track" role="button" aria-controls="popover-teams-create-cta" data-controller="s-popover" data-action="s-popover#toggle" data-s-popover-placement="bottom-start" data-s-popover-toggle-class="is-selected" data-gps-track="teams.create.left-sidenav.click({ Action: ShowInfo })" data-ga="[&quot;teams left navigation - anonymous&quot;,&quot;left nav show teams info&quot;,null,null,null]">
+                                                What’s this?
+                                            </a>
+
+                                            <div class="s-popover w-auto p16" id="popover-teams-create-cta" role="menu" aria-hidden="true">
+                                                <div class="s-popover--arrow"></div>
+
+                                                <div class="ps-relative overflow-hidden">
+                                                    <p class="mb2"><strong>Teams</strong></p>
+                                                    <p class="mb16 fs-caption fc-medium">Q&amp;A for Work</p>
+                                                    <p class="mb8 fs-caption fc-medium">
+                                                            
+                                                                Stack Overflow for Teams is a private, secure spot for you and
+                                                                your coworkers to find and share information.
+                                                            
+                                                    </p>
+                                                    <a href="https://stackoverflow.com/teams" class="js-gps-track ws-nowrap d-block" data-gps-track="teams.create.left-sidenav.click({ Action: CtaClick })" data-ga="[&quot;teams left navigation - anonymous&quot;,&quot;left nav cta&quot;,&quot;stackoverflow.com/teams&quot;,null,null]">
+                                                            Learn more
+                                                    </a>
+                                                </div>
+
+                                                <div class="ps-absolute t8 r8">
+                                                    <svg width="53" height="49" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M49 11l.2 31H18.9L9 49v-7H4V8h31" fill="#CCEAFF"></path><path d="M44.5 19v-.3l-.2-.1-18-13-.1-.1H.5v33h4V46l.8-.6 9.9-6.9h29.3V19z" stroke="#1060E1" stroke-miterlimit="10"></path><path d="M31 2l6-1.5 7 2V38H14.9L5 45v-7H1V6h25l5-4z" fill="#fff"></path><path d="M7 16.5h13m-13 6h14m-14 6h18" stroke="#1060E1" stroke-miterlimit="10"></path><path d="M39 30a14 14 0 1 0 0-28 14 14 0 0 0 0 28z" fill="#FFB935"></path><path d="M50.5 14a13.5 13.5 0 1 1-27 0 13.5 13.5 0 0 1 27 0z" stroke="#F48024" stroke-miterlimit="10"></path><path d="M32.5 21.5v-8h9v8h-9zm2-9.5V9.3A2.5 2.5 0 0 1 37 6.8a2.5 2.5 0 0 1 2.5 2.5V12h-5zm2 3v2m1-2v2" stroke="#fff" stroke-miterlimit="10"></path></svg>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li class="ps-relative">
+                                        <a href="https://stackoverflow.com/teams" class="pl8 js-gps-track nav-links--link" title="Stack Overflow for Teams is a private, secure spot for your organization&#39;s questions and answers." data-gps-track="teams.create.left-sidenav.click({ Action: TeamsClick })" data-ga="[&quot;teams left navigation - anonymous&quot;,&quot;left nav team click&quot;,&quot;stackoverflow.com/teams&quot;,null,null]">
+                                            <div class="grid ai-center">
+                                                <div class="grid--cell s-avatar va-middle bg-orange-400">
+                                                    <div class="s-avatar--letter mtn1">
+                                                        <svg aria-hidden="true" class="svg-icon iconBriefcaseSm" width="14" height="14" viewBox="0 0 14 14"><path d="M4 3a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v1h1a1 1 0 0 1 1 1v6a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h1V3zm5 0H5v1h4V3z"></path></svg>
+                                                    </div>
+                                                    <svg aria-hidden="true" class="svg-icon native s-avatar--badge iconShieldXSm" width="9" height="10" viewBox="0 0 9 10"><path d="M0 1.84L4.5 0 9 1.84v3.17C9 7.53 6.3 10 4.5 10 2.7 10 0 7.53 0 5.01V1.84z" fill="#fff"></path><path d="M1 2.5L4.5 1 8 2.5v2.51C8 7.34 5.34 9 4.5 9 3.65 9 1 7.34 1 5.01V2.5zm2.98 3.02L3.2 7h2.6l-.78-1.48a.4.4 0 0 1 .15-.38c.34-.24.73-.7.73-1.14 0-.71-.5-1.23-1.41-1.23-.92 0-1.39.52-1.39 1.23 0 .44.4.9.73 1.14.12.08.18.23.15.38z" fill="#6A7E7C"></path></svg>
+                                                </div>
+                                                <div class="grid--cell pl6 js-create-team-btn-with-tooltip">
+                                                        First 10 Free
+                                                </div>
+                                            </div>
+                                        </a>
+                                    </li>
+                            </ol>
+                        </li>
+                </ol>
+            </nav>
+    </div>
+
+</div>
+
+
+        <div id="content" class="snippet-hidden">
+
+
+            
+
+
+<div itemprop="mainEntity" itemscope="" itemtype="http://schema.org/Question">
+    <link itemprop="image" href="https://cdn.sstatic.net/Sites/stackoverflow/img/apple-touch-icon.png?v=c78bd457575a">
+
+    <div class="inner-content clearfix">
+
+        
+
+                    <div id="question-header" class="grid sm:fd-column">
+                        <h1 itemprop="name" class="grid--cell fs-headline1 fl1 ow-break-word mb8"><a href="https://stackoverflow.com/questions/48845547/shortest-path-with-another-constraint" class="question-hyperlink">Shortest path with another constraint</a></h1>
+
+                <div class="ml12 aside-cta grid--cell print:d-none sm:ml0 sm:mb12 sm:order-first sm:as-end">
+
+    <a href="https://stackoverflow.com/questions/ask" class="ws-nowrap s-btn s-btn__primary">
+        Ask Question
+    </a>
+
+                </div>
+            </div>
+            <div class="grid fw-wrap pb8 mb16 bb bc-black-2">
+                    <div class="grid--cell ws-nowrap mr16 mb8" title="2018-02-17 20:17:36Z">
+                        <span class="fc-light mr2">Asked</span>
+                        <time itemprop="dateCreated" datetime="2018-02-17T20:17:36">1 year, 7 months ago</time>
+                    </div>
+                        <div class="grid--cell ws-nowrap mr16 mb8">
+                            <span class="fc-light mr2">Active</span>
+                            <a href="https://stackoverflow.com/questions/48845547/shortest-path-with-another-constraint?lastactivity" class="s-link s-link__inherit" title="2018-02-17 22:17:12Z">1 year, 7 months ago</a>
+                        </div>
+                    <div class="grid--cell ws-nowrap mb8" title="Viewed 388 times">
+                        <span class="fc-light mr2">Viewed</span>
+                        388 times
+                    </div>
+            </div>
+                    <div id="mainbar" role="main" aria-label="question and answers">
+
+                
+
+<div class="question" data-questionid="48845547" id="question">
+
+    <style>.everyoneloves__top-leaderboard:empty,.everyoneloves__mid-leaderboard:empty,.everyoneloves__bot-mid-leaderboard:empty{                margin-bottom:0;
+}</style>
+        <div id="dfp-tlb" class="everyonelovesstackoverflow everyoneloves__top-leaderboard"></div>
+    <div class="post-layout">
+        <div class="votecell post-layout--left">
+            
+
+<div class="js-voting-container grid fd-column ai-stretch gs4 fc-black-200" data-post-id="48845547">
+        <button class="js-vote-up-btn grid--cell s-btn s-btn__unset c-pointer" title="This question shows research effort; it is useful and clear" aria-pressed="false" aria-label="up vote" data-selected-classes="fc-theme-primary"><svg aria-hidden="true" class="svg-icon m0 iconArrowUpLg" width="36" height="36" viewBox="0 0 36 36"><path d="M2 26h32L18 10 2 26z"></path></svg></button>
+        <div class="js-vote-count grid--cell fc-black-500 fs-title grid fd-column ai-center" itemprop="upvoteCount" data-value="2">2</div>
+        <button class="js-vote-down-btn grid--cell s-btn s-btn__unset c-pointer" title="This question does not show any research effort; it is unclear or not useful" aria-pressed="false" aria-label="down vote" data-selected-classes="fc-theme-primary"><svg aria-hidden="true" class="svg-icon m0 iconArrowDownLg" width="36" height="36" viewBox="0 0 36 36"><path d="M2 10h32L18 26 2 10z"></path></svg></button>
+
+        <button class="js-favorite-btn s-btn s-btn__unset c-pointer py8" aria-pressed="false" aria-label="favorite (2)" data-selected-classes="fc-yellow-600">
+            <svg aria-hidden="true" class="svg-icon iconStar" width="18" height="18" viewBox="0 0 18 18"><path d="M9 12.65l-5.29 3.63 1.82-6.15L.44 6.22l6.42-.17L9 0l2.14 6.05 6.42.17-5.1 3.9 1.83 6.16L9 12.65z"></path></svg>
+            <div class="js-favorite-count mt8" data-value="2">2</div>
+        </button>
+
+
+</div>
+
+        </div>
+
+        
+<div class="postcell post-layout--right">
+    
+    <div class="post-text" itemprop="text">
+
+<p>Given a weighted undirected graph, I need to find the shortest path between two nodes, a classical shortest path problem actually. But there is one more constraint : Each node contains a "reduction" value that can be used to reduce the cost of the following edges for one traversal(not only adjacent, and reduction are not cumulative). So you can reduce the cost of an edge using the "Reduction" that was in one of the node you went throught before (the final cost for each edge can't be less than 0).</p>
+
+<p>Note that once we went throught a node with a reduction, we can use it again for all the following edges (not just adjacent, and it is available an unlimited amount of time). Reduction doesn't accumulate.</p>
+
+<p>Let's consider this graph :</p>
+
+<p><a href="./algorithm - Shortest path with another constraint - Stack Overflow_files/Yltr5.png" rel="nofollow noreferrer"><img src="./algorithm - Shortest path with another constraint - Stack Overflow_files/Yltr5.png" alt="enter image description here"></a></p>
+
+<p>in this graph the shortest path from node 1 to 5 is :</p>
+
+<ul>
+<li>1 -&gt; 4 for a cost of 13 (15-2)</li>
+<li>4 -&gt; 3 for a cost of 0 (12-12)</li>
+<li>3 -&gt; 5 for a cost of 0 (10-12) In this case, we reuse the reduction of node 4 because it is bigger than the reduction of node 3 (We went throught the node n°4 then we have an unlimited amount of reduction of cost 12). It is 0 and not -2 because the weight of an edge can't be negative.</li>
+</ul>
+
+<p>Then the total cost from node 1 to node 5 is 13 + 0 + 0 = 13</p>
+
+<p>To solve this problem, I've tried to use the classical Dijkstra/Bellman-Ford but it didn't work, can you help me with this ?</p>
+    </div>
+
+        <div class="post-taglist grid gs4 gsy fd-column">
+            <div class="grid ps-relative d-block">
+                <a href="https://stackoverflow.com/questions/tagged/algorithm" class="post-tag" title="show questions tagged &#39;algorithm&#39;" rel="tag">algorithm</a> <a href="https://stackoverflow.com/questions/tagged/graph-algorithm" class="post-tag" title="show questions tagged &#39;graph-algorithm&#39;" rel="tag">graph-algorithm</a> <a href="https://stackoverflow.com/questions/tagged/shortest-path" class="post-tag" title="show questions tagged &#39;shortest-path&#39;" rel="tag">shortest-path</a> 
+            </div>
+        </div>
+
+    <div class="mb0 ">
+        <div class="mt16 pt4 grid gs8 gsy fw-wrap jc-end ai-start">
+            <div class="grid--cell mr16" style="flex: 1 1 100px;">
+<div class="post-menu"><a href="https://stackoverflow.com/q/48845547" itemprop="url" class="js-share-link" title="short permalink to this question" data-controller="se-share-sheet" data-se-share-sheet-title="Share a link to this question" data-se-share-sheet-subtitle="" data-se-share-sheet-post-type="question" data-se-share-sheet-social="facebook twitter devto" data-se-share-sheet-location="1" data-s-popover-placement="bottom-start">share</a><span class="lsep">|</span><a href="https://stackoverflow.com/posts/48845547/edit" class="suggest-edit-post" title="">improve this question</a></div>
+            </div>
+
+                <div class="post-signature grid--cell">
+<div class="user-info ">
+    <div class="user-action-time">
+        <a href="https://stackoverflow.com/posts/48845547/revisions" title="show all edits to this post">edited <span title="2018-02-17 21:36:18Z" class="relativetime">Feb 17 '18 at 21:36</span></a>
+    </div>
+    <div class="user-gravatar32">
+        
+    </div>
+    <div class="user-details" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+        <span class="d-none" itemprop="name">Faithe</span>
+        <div class="-flair">
+            
+        </div>
+    </div>
+</div>                </div>
+            <div class="post-signature owner grid--cell">
+<div class="user-info ">
+    <div class="user-action-time">
+        asked <span title="2018-02-17 20:17:36Z" class="relativetime">Feb 17 '18 at 20:17</span>
+    </div>
+    <div class="user-gravatar32">
+        <a href="https://stackoverflow.com/users/9374517/faithe"><div class="gravatar-wrapper-32"><img src="./algorithm - Shortest path with another constraint - Stack Overflow_files/2e076b3f7f7a735732f638978017f907" alt="" width="32" height="32"></div></a>
+    </div>
+    <div class="user-details" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+        <a href="https://stackoverflow.com/users/9374517/faithe">Faithe</a><span class="d-none" itemprop="name">Faithe</span>
+        <div class="-flair">
+            <span class="reputation-score" title="reputation score " dir="ltr">13</span><span title="5 bronze badges" aria-hidden="true"><span class="badge3"></span><span class="badgecount">5</span></span><span class="v-visible-sr">5 bronze badges</span>
+        </div>
+    </div>
+</div>
+
+            </div>
+        </div>
+    </div>
+    
+</div>
+        <div class="js-post-notices post-layout--full">
+        </div>
+
+    <div class="post-layout--right">
+        <div id="comments-48845547" class="comments js-comments-container " data-post-id="48845547" data-min-length="15">
+            <ul class="comments-list js-comments-list" data-remaining-comments-count="14" data-canpost="false" data-cansee="true" data-comments-unavailable="false" data-addlink-disabled="true">
+
+
+    <li id="comment-84695375" class="comment js-comment " data-comment-id="84695375">
+        <div class="js-comment-actions comment-actions">
+            <div class="comment-score js-comment-edit-hide">
+                    <span title="number of &#39;useful comment&#39; votes received" class="cool">1</span>
+            </div>
+                    </div>
+        <div class="comment-text js-comment-text-and-form">
+            <div class="comment-body js-comment-edit-hide">
+                
+                <span class="comment-copy">I suggest you show some actual code. The solution will depend on your implementation, your data model, i.e., how your graph looks like in code, etc. Also, be detailed, please. Don't tell us to solve your problem but what you don't understand or what approach you tried and why it failed.</span>
+                
+                    –&nbsp;<a href="https://stackoverflow.com/users/3494013/cadaniluk" title="13,349 reputation" class="comment-user">cadaniluk</a>
+                <span class="comment-date" dir="ltr"><span title="2018-02-17 20:30:08Z" class="relativetime-clean">Feb 17 '18 at 20:30</span></span>
+                        <span title="this comment was edited 1 time">
+                            <svg aria-hidden="true" class="svg-icon va-text-bottom o50 iconPencilSm" width="14" height="14" viewBox="0 0 14 14"><path d="M11.1 1.71l1.13 1.12c.2.2.2.51 0 .71L11.1 4.7 9.21 2.86l1.17-1.15c.2-.2.51-.2.71 0zM2 10.12l6.37-6.43 1.88 1.88L3.88 12H2v-1.88z"></path></svg>
+                        </span>
+                                                            </div>
+        </div>
+    </li>
+    <li id="comment-84695579" class="comment js-comment " data-comment-id="84695579">
+        <div class="js-comment-actions comment-actions">
+            <div class="comment-score js-comment-edit-hide">
+            </div>
+                    </div>
+        <div class="comment-text js-comment-text-and-form">
+            <div class="comment-body js-comment-edit-hide">
+                
+                <span class="comment-copy">Ok, the only idea I have is to test all the possible paths from A to B and take the cheaper. But an algorithm like that will never work in time... Then I want to find a better approach and for that I need your help :)</span>
+                
+                    –&nbsp;<a href="https://stackoverflow.com/users/9374517/faithe" title="13 reputation" class="comment-user owner">Faithe</a>
+                <span class="comment-date" dir="ltr"><span title="2018-02-17 20:44:11Z" class="relativetime-clean">Feb 17 '18 at 20:44</span></span>
+                                                            </div>
+        </div>
+    </li>
+    <li id="comment-84695753" class="comment js-comment " data-comment-id="84695753">
+        <div class="js-comment-actions comment-actions">
+            <div class="comment-score js-comment-edit-hide">
+            </div>
+                    </div>
+        <div class="comment-text js-comment-text-and-form">
+            <div class="comment-body js-comment-edit-hide">
+                
+                <span class="comment-copy">I am confused with your example. Do the reductions accumulate? Was the final reduction 12 or 14 when you reached node 5?</span>
+                
+                    –&nbsp;<a href="https://stackoverflow.com/users/782570/giusti" title="2,535 reputation" class="comment-user">giusti</a>
+                <span class="comment-date" dir="ltr"><span title="2018-02-17 20:55:40Z" class="relativetime-clean">Feb 17 '18 at 20:55</span></span>
+                                                            </div>
+        </div>
+    </li>
+    <li id="comment-84695839" class="comment js-comment " data-comment-id="84695839">
+        <div class="js-comment-actions comment-actions">
+            <div class="comment-score js-comment-edit-hide">
+            </div>
+                    </div>
+        <div class="comment-text js-comment-text-and-form">
+            <div class="comment-body js-comment-edit-hide">
+                
+                <span class="comment-copy">I'm sorry, I think I didn't explain it really well :/. The reduction doesn't accumulate and the final reduction was 12.</span>
+                
+                    –&nbsp;<a href="https://stackoverflow.com/users/9374517/faithe" title="13 reputation" class="comment-user owner">Faithe</a>
+                <span class="comment-date" dir="ltr"><span title="2018-02-17 21:00:45Z" class="relativetime-clean">Feb 17 '18 at 21:00</span></span>
+                                                            </div>
+        </div>
+    </li>
+    <li id="comment-84695935" class="comment js-comment " data-comment-id="84695935">
+        <div class="js-comment-actions comment-actions">
+            <div class="comment-score js-comment-edit-hide">
+            </div>
+                    </div>
+        <div class="comment-text js-comment-text-and-form">
+            <div class="comment-body js-comment-edit-hide">
+                
+                <span class="comment-copy">Ah, ok. So once you've got the reduction of 12 at node 4, you can choose whether to keep it or change for the reduction of 0 at node 3?</span>
+                
+                    –&nbsp;<a href="https://stackoverflow.com/users/782570/giusti" title="2,535 reputation" class="comment-user">giusti</a>
+                <span class="comment-date" dir="ltr"><span title="2018-02-17 21:06:45Z" class="relativetime-clean">Feb 17 '18 at 21:06</span></span>
+                                                            </div>
+        </div>
+    </li>
+            </ul>
+	    </div>
+
+        <div id="comments-link-48845547" data-rep="50" data-anon="true">
+
+                    <a class="js-add-link comments-link dno" title="Use comments to ask for more information or suggest improvements. Avoid answering questions in comments."></a>
+                <span class="js-link-separator dno">&nbsp;|&nbsp;</span>
+            <a class="js-show-link comments-link " title="expand to show all comments on this post" href="https://stackoverflow.com/questions/48845547/shortest-path-with-another-constraint#" onclick="">show <b>14</b> more comments</a>
+        </div>         
+    </div>            </div>
+</div>
+
+
+<div id="dfp-isb" class="everyonelovesstackoverflow everyoneloves__inline-sidebar"></div>
+                <div id="answers">
+
+                    <a name="tab-top"></a>
+                    <div id="answers-header">
+                        <div class="subheader answers-subheader">
+                            <h2 data-answercount="2">
+                                    2 Answers
+                                <span style="display:none;" itemprop="answerCount">2</span>
+                            </h2>
+                            <div>
+                                
+<div id="tabs">
+        <a href="https://stackoverflow.com/questions/48845547/shortest-path-with-another-constraint?answertab=active#tab-top" data-nav-xhref="" title="Answers with the latest activity first" data-value="active" data-shortcut="A">
+            active</a>
+        <a href="https://stackoverflow.com/questions/48845547/shortest-path-with-another-constraint?answertab=oldest#tab-top" data-nav-xhref="" title="Answers in the order they were provided" data-value="oldest" data-shortcut="O">
+            oldest</a>
+        <a class="youarehere is-selected " href="https://stackoverflow.com/questions/48845547/shortest-path-with-another-constraint?answertab=votes#tab-top" data-nav-xhref="" title="Answers with the highest score first" data-value="votes" data-shortcut="V">
+            votes</a>
+    </div>
+
+                            </div>
+                        </div>
+                    </div>
+
+
+
+
+  
+<a name="48846224"></a>
+<div id="answer-48846224" class="answer accepted-answer" data-answerid="48846224" itemprop="acceptedAnswer" itemscope="" itemtype="http://schema.org/Answer">
+    <div class="post-layout">
+        <div class="votecell post-layout--left">
+            
+
+<div class="js-voting-container grid fd-column ai-stretch gs4 fc-black-200" data-post-id="48846224">
+        <button class="js-vote-up-btn grid--cell s-btn s-btn__unset c-pointer" title="This answer is useful" aria-pressed="false" aria-label="up vote" data-selected-classes="fc-theme-primary"><svg aria-hidden="true" class="svg-icon m0 iconArrowUpLg" width="36" height="36" viewBox="0 0 36 36"><path d="M2 26h32L18 10 2 26z"></path></svg></button>
+        <div class="js-vote-count grid--cell fc-black-500 fs-title grid fd-column ai-center" itemprop="upvoteCount" data-value="0">0</div>
+        <button class="js-vote-down-btn grid--cell s-btn s-btn__unset c-pointer" title="This answer is not useful" aria-pressed="false" aria-label="down vote" data-selected-classes="fc-theme-primary"><svg aria-hidden="true" class="svg-icon m0 iconArrowDownLg" width="36" height="36" viewBox="0 0 36 36"><path d="M2 10h32L18 26 2 10z"></path></svg></button>
+
+
+            <div class="js-accepted-answer-indicator grid--item fc-green-500 ta-center p4" title="loading when this answer was accepted..." tabindex="0" role="note" aria-label="accepted">
+                <svg aria-hidden="true" class="svg-icon iconCheckmarkLg" width="36" height="36" viewBox="0 0 36 36"><path d="M6 14l8 8L30 6v8L14 30l-8-8v-8z"></path></svg>
+            </div>
+
+</div>
+
+        </div>
+
+        
+<div class="answercell post-layout--right">
+    
+    <div class="post-text" itemprop="text">
+<p>It seems to be this can be solved with a variation of Bellman-Ford.</p>
+
+<p>Every path up to a given node can be summarised as a pair (C, D) where C is the cost of that path (after discounts) and D is the best discount factor available on that path. Since a discount can be reused an unlimited number of times once that node has been visited, it makes sense to always use the biggest discount seen so far on that path. For example, the path (1 -&gt; 4 -&gt; 3) has cost C = 13 and discount D = 12.</p>
+
+<p>The complication over the undiscounted problem is that we cannot tell from the cost what the "best" path is to nodes in between the source and destination. In your example the path (1 -&gt; 2 -&gt; 3) has lower cost than (1 -&gt; 4 -&gt; 3), but the latter has a better discount which is why the best path from 1 to 5 is (1 -&gt; 4 -&gt; 3 -&gt; 5).</p>
+
+<p>Rather than recording the lowest cost path to each node (in Bellman-Ford algorithm), we need to record all "feasible" paths from the source to that node found so far. A path can be said to be feasible if there is no other known path that has both a lower cost and a better discount. After the algorithm terminates we can take from all feasible paths from source to destination the one with the smallest cost, ignoring the discount.</p>
+
+<p>(<strong>Edit</strong>: I originally suggested Djikstra could be used but I think that not be so straightforward. I'm not sure we can choose "the closest" unvisited node in any meaningful way such that we are guaranteed to find the minimal path. Someone else might see how to make it work though...)</p>
+    </div>
+    <div class="grid mb0 fw-wrap ai-start jc-end gs8 gsy">
+        <time itemprop="dateCreated" datetime="2018-02-17T21:43:57"></time>
+    <div class="grid--cell mr16" style="flex: 1 1 100px;">
+<div class="post-menu"><a href="https://stackoverflow.com/a/48846224" itemprop="url" class="js-share-link" title="short permalink to this answer" data-controller="se-share-sheet" data-se-share-sheet-title="Share a link to this answer" data-se-share-sheet-subtitle="" data-se-share-sheet-post-type="answer" data-se-share-sheet-social="facebook twitter devto" data-se-share-sheet-location="2" data-s-popover-placement="bottom-start">share</a><span class="lsep">|</span><a href="https://stackoverflow.com/posts/48846224/edit" class="suggest-edit-post" title="">improve this answer</a></div>            </div>
+    <div class="post-signature grid--cell fl0">
+<div class="user-info ">
+    <div class="user-action-time">
+        <a href="https://stackoverflow.com/posts/48846224/revisions" title="show all edits to this post">edited <span title="2018-02-17 22:17:12Z" class="relativetime">Feb 17 '18 at 22:17</span></a>
+    </div>
+    <div class="user-gravatar32">
+        
+    </div>
+    <div class="user-details">
+        
+        <div class="-flair">
+            
+        </div>
+    </div>
+</div>    </div>
+            
+
+
+    <div class="post-signature grid--cell fl0">
+<div class="user-info user-hover">
+    <div class="user-action-time">
+        answered <span title="2018-02-17 21:43:57Z" class="relativetime">Feb 17 '18 at 21:43</span>
+    </div>
+    <div class="user-gravatar32">
+        <a href="https://stackoverflow.com/users/8742505/myrtlecat"><div class="gravatar-wrapper-32"><img src="./algorithm - Shortest path with another constraint - Stack Overflow_files/965918ff0f7de004679dcc79733c87dc.jpeg" alt="" width="32" height="32"></div></a>
+    </div>
+    <div class="user-details" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+        <a href="https://stackoverflow.com/users/8742505/myrtlecat">myrtlecat</a><span class="d-none" itemprop="name">myrtlecat</span>
+        <div class="-flair">
+            <span class="reputation-score" title="reputation score " dir="ltr">1,004</span><span title="5 silver badges" aria-hidden="true"><span class="badge2"></span><span class="badgecount">5</span></span><span class="v-visible-sr">5 silver badges</span><span title="14 bronze badges" aria-hidden="true"><span class="badge3"></span><span class="badgecount">14</span></span><span class="v-visible-sr">14 bronze badges</span>
+        </div>
+    </div>
+</div>
+
+    </div>
+    </div>
+    
+</div>
+
+        <div class="js-post-notices post-layout--full">
+        </div>
+
+    <div class="post-layout--right">
+        <div id="comments-48846224" class="comments js-comments-container  dno" data-post-id="48846224" data-min-length="15">
+            <ul class="comments-list js-comments-list" data-remaining-comments-count="0" data-canpost="false" data-cansee="true" data-comments-unavailable="false" data-addlink-disabled="true">
+
+            </ul>
+	    </div>
+
+        <div id="comments-link-48846224" data-rep="50" data-anon="true">
+
+                    <a class="js-add-link comments-link disabled-link" title="Use comments to ask for more information or suggest improvements. Avoid comments like “+1” or “thanks”.">add a comment</a>
+                <span class="js-link-separator dno">&nbsp;|&nbsp;</span>
+            <a class="js-show-link comments-link dno" title="expand to show all comments on this post" href="https://stackoverflow.com/questions/48845547/shortest-path-with-another-constraint#" onclick=""></a>
+        </div>         
+    </div>    </div>
+</div>
+<div id="dfp-mlb" class="everyonelovesstackoverflow everyoneloves__mid-leaderboard"></div>
+  
+<a name="48846231"></a>
+<div id="answer-48846231" class="answer" data-answerid="48846231" itemprop="suggestedAnswer" itemscope="" itemtype="http://schema.org/Answer">
+    <div class="post-layout">
+        <div class="votecell post-layout--left">
+            
+
+<div class="js-voting-container grid fd-column ai-stretch gs4 fc-black-200" data-post-id="48846231">
+        <button class="js-vote-up-btn grid--cell s-btn s-btn__unset c-pointer" title="This answer is useful" aria-pressed="false" aria-label="up vote" data-selected-classes="fc-theme-primary"><svg aria-hidden="true" class="svg-icon m0 iconArrowUpLg" width="36" height="36" viewBox="0 0 36 36"><path d="M2 26h32L18 10 2 26z"></path></svg></button>
+        <div class="js-vote-count grid--cell fc-black-500 fs-title grid fd-column ai-center" itemprop="upvoteCount" data-value="0">0</div>
+        <button class="js-vote-down-btn grid--cell s-btn s-btn__unset c-pointer" title="This answer is not useful" aria-pressed="false" aria-label="down vote" data-selected-classes="fc-theme-primary"><svg aria-hidden="true" class="svg-icon m0 iconArrowDownLg" width="36" height="36" viewBox="0 0 36 36"><path d="M2 10h32L18 26 2 10z"></path></svg></button>
+
+
+            <div class="js-accepted-answer-indicator grid--item fc-green-500 ta-center p4 d-none" title="loading when this answer was accepted..." tabindex="0" role="note" aria-label="accepted">
+                <svg aria-hidden="true" class="svg-icon iconCheckmarkLg" width="36" height="36" viewBox="0 0 36 36"><path d="M6 14l8 8L30 6v8L14 30l-8-8v-8z"></path></svg>
+            </div>
+
+</div>
+
+        </div>
+
+        
+<div class="answercell post-layout--right">
+    
+    <div class="post-text" itemprop="text">
+<p>I think you can use a Dijkstra-type algorithm. Dijkstra's algorithm can be thought of computing the minimum spanning tree that contains the shortest paths from a source vertex to all other vertices. Let's call this the "Dijkstra tree" that contains all the shortest paths from a given source vertex.</p>
+
+<p>Dijkstra keeps adding new vertices to the current tree. For the next vertex he chooses the one that is closest to the current tree. See this animation from <a href="https://en.wikipedia.org/wiki/Dijkstra%27s_algorithm" rel="nofollow noreferrer">wikipedia</a>:</p>
+
+<p><img src="./algorithm - Shortest path with another constraint - Stack Overflow_files/DijkstraDemo.gif" alt="Wikipedia Dijkstra animation"></p>
+
+<p>So when Dijkstra adds a new vertex v to an already inserted vertex u (of the current tree), the edge weight of {u, v} has to be considered. In your case, the costs are not just the edge weight of {u, v}, but the weight reduced by the sum of vertex-reductions along the shortest path to u in the current tree. So you have to remember the sum of the vertex reductions along the paths of this "Dijkstra" tree in the vertices.</p>
+    </div>
+    <div class="grid mb0 fw-wrap ai-start jc-end gs8 gsy">
+        <time itemprop="dateCreated" datetime="2018-02-17T21:44:38"></time>
+    <div class="grid--cell mr16" style="flex: 1 1 100px;">
+<div class="post-menu"><a href="https://stackoverflow.com/a/48846231" itemprop="url" class="js-share-link" title="short permalink to this answer" data-controller="se-share-sheet" data-se-share-sheet-title="Share a link to this answer" data-se-share-sheet-subtitle="" data-se-share-sheet-post-type="answer" data-se-share-sheet-social="facebook twitter devto" data-se-share-sheet-location="2" data-s-popover-placement="bottom-start">share</a><span class="lsep">|</span><a href="https://stackoverflow.com/posts/48846231/edit" class="suggest-edit-post" title="">improve this answer</a></div>            </div>
+            
+
+
+    <div class="post-signature grid--cell fl0">
+<div class="user-info ">
+    <div class="user-action-time">
+        answered <span title="2018-02-17 21:44:38Z" class="relativetime">Feb 17 '18 at 21:44</span>
+    </div>
+    <div class="user-gravatar32">
+        <a href="https://stackoverflow.com/users/8756717/s-huber"><div class="gravatar-wrapper-32"><img src="./algorithm - Shortest path with another constraint - Stack Overflow_files/QGWyG.jpg" alt="" width="32" height="32"></div></a>
+    </div>
+    <div class="user-details" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+        <a href="https://stackoverflow.com/users/8756717/s-huber">S. Huber</a><span class="d-none" itemprop="name">S. Huber</span>
+        <div class="-flair">
+            <span class="reputation-score" title="reputation score " dir="ltr">523</span><span title="6 silver badges" aria-hidden="true"><span class="badge2"></span><span class="badgecount">6</span></span><span class="v-visible-sr">6 silver badges</span><span title="20 bronze badges" aria-hidden="true"><span class="badge3"></span><span class="badgecount">20</span></span><span class="v-visible-sr">20 bronze badges</span>
+        </div>
+    </div>
+</div>
+
+    </div>
+    </div>
+    
+</div>
+
+        <div class="js-post-notices post-layout--full">
+        </div>
+
+    <div class="post-layout--right">
+        <div id="comments-48846231" class="comments js-comments-container  dno" data-post-id="48846231" data-min-length="15">
+            <ul class="comments-list js-comments-list" data-remaining-comments-count="0" data-canpost="false" data-cansee="true" data-comments-unavailable="false" data-addlink-disabled="true">
+
+            </ul>
+	    </div>
+
+        <div id="comments-link-48846231" data-rep="50" data-anon="true">
+
+                    <a class="js-add-link comments-link disabled-link" title="Use comments to ask for more information or suggest improvements. Avoid comments like “+1” or “thanks”.">add a comment</a>
+                <span class="js-link-separator dno">&nbsp;|&nbsp;</span>
+            <a class="js-show-link comments-link dno" title="expand to show all comments on this post" href="https://stackoverflow.com/questions/48845547/shortest-path-with-another-constraint#" onclick=""></a>
+        </div>         
+    </div>    </div>
+</div>
+
+
+                        <a name="new-answer"></a>
+                            <form id="post-form" action="https://stackoverflow.com/questions/48845547/answer/submit" method="post" class="js-add-answer-component post-form">
+                                <input type="hidden" id="post-id" value="48845547">
+                                <input type="hidden" id="qualityBanWarningShown" name="qualityBanWarningShown" value="false">
+                                <input type="hidden" name="referrer" value="https://www.google.com/">
+                                <h2 class="space">
+                                    Your Answer
+                                </h2>
+
+
+
+    </form></div></div></div></div></div></div></body></html>
