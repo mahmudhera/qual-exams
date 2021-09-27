@@ -1,0 +1,113 @@
+\documentclass[12pt]{article}
+
+\usepackage{color}
+\usepackage{float}
+\usepackage{answers}
+\usepackage{setspace}
+\usepackage{graphicx}
+\usepackage{enumitem}
+\usepackage{multicol}
+\usepackage{mathrsfs}
+\usepackage[margin=1in]{geometry} 
+\usepackage{amsmath,amsthm,amssymb}
+ 
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\R}{\mathbb{R}}
+
+\DeclareMathOperator{\sech}{sech}
+\DeclareMathOperator{\csch}{csch}
+ 
+\newenvironment{theorem}[2][Theorem]{\begin{trivlist}
+\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{definition}[2][Definition]{\begin{trivlist}
+\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{proposition}[2][Proposition]{\begin{trivlist}
+\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{lemma}[2][Lemma]{\begin{trivlist}
+\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{exercise}[2][Exercise]{\begin{trivlist}
+\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{solution}[2][Solution]{\begin{trivlist}
+\item[\hskip \labelsep {\bfseries #1}]}{\end{trivlist}}
+\newenvironment{problem}[2][Problem]{\begin{trivlist}
+\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{question}[2][Question]{\begin{trivlist}
+\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{corollary}[2][Corollary]{\begin{trivlist}
+\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+ 
+\begin{document}
+% --------------------------------------------------------------
+%                         Start here
+% --------------------------------------------------------------
+ 
+\title{\textbf{HW3}}%replace with the appropriate homework number
+\author{Seyed Armin Vakil Ghahani\\ %replace with your name
+PSU ID: 914017982\\
+CSE-565 Fall 2018\\
+Collaboration with:
+Sara Mahdizadeh Shahri, Soheil Khadirsharbiyani\\
+Muhammad Talha Imran} %if necessary, replace with your course title}
+ 
+\maketitle
+%Below is an example of the problem environment
+\begin{problem}{1}
+Sum of Functions
+\end{problem}
+
+%Below is the solution environment
+\begin{solution}{}
+\begin{itemize}
+\item a) For each i, $f_i(n) \in O(n)$. Hence, there is an $N_i$ and $c_i$ that inequality
+$f_{i} (n) \leq c_{i}*n$ is true for each $n \geq N_i$.
+Thus, for each $n \geq max_{n=1}^{m} N_i$:
+$$s_m(n) \leq \sum_{i=1}^{m} c_i*n \Rightarrow s_m(n) \leq n*C$$
+which $C = \sum_{i=1}^{m} c_i$. Therefore, it proves that $s_m(n) \in O(n)$.
+
+\item b) For each i, $f_i(n) \in O(n)$. Hence, there is an $N_i$ and $c_i$ that inequality
+$f_{i} (n) \leq c_{i}*n$ is true for each $n \geq N_i$.
+Thus, for each $n \geq max_{i=1}^{n} N_i$:
+$$s_n(n) \leq \sum_{i=1}^{n} c_i*n \Rightarrow s_n(n) \leq n*c_k*\sum_{i=1}^{n} \frac{c_i}{c_k}$$
+which $c_k = max_{i=1}^{n} c_i$. Hence, for each $1 \leq i \leq n$, $c_i \leq c_k \Rightarrow
+\frac{c_i}{c_k} \leq 1$. So,
+$$s_n(n) \leq n * c_k * \sum_{i=1}^{n} 1 = n*c_k*n = n^2*c_k$$
+Therefore, $s_n(n) \in O(n^2)$.
+
+\end{itemize}
+\end{solution}
+
+\begin{problem}{2}
+Shortest Cycles
+\end{problem}
+
+%Below is the solution environment
+\begin{solution}{}
+\begin{itemize}
+\item a) We are going to prove that the vertexes $v_i, ..., v_n, v_1, ..., v_{i-1}$ are on depth
+$0$ through $k-1$ consecutively. It will be proven by contradiction. Suppose that, the first
+vertex that breaks this rule is $v_{j+1}$ that is after $v_j$, and $v_j$ and $v_{j+1}$ are in 
+depth $a \geq b$, consecutively. The length of path from $v_i$ to $v_{j+1}$ is $b$ through
+the BFS tree, however, the length of this path through the cycle is $a+1$ which is greater
+than $b$ (not equal). Hence, if we replace the path in the BFS tree with the path in the cycle,
+the length of the shortest cycle will be reduced that is in contradiction with the shortest cycle
+assumption.
+
+\item b) If we run a BFS algorithm from a node in the graph, it will give us the shortest cycle
+that concludes this vertex. Whenever a back edge to the root is shown in the BFS algorithm,
+it represents a cycle which includes root. Since, in BFS, the vertexes are traversed by their
+distance to the root, the first back edge to the root will be the shortest cycle. Hence, if we run
+this algorithm for every vertex in the graph, the shortest cycle of each vertex will be calculated
+and we can take the shortest cycle of the graph in O(n*(m+n)) because the BFS algorithm is O(m+n)
+and we run it for n times. 
+
+\end{itemize}
+\end{solution}
+
+
+
+\pagebreak
+
+\end{document}
+
