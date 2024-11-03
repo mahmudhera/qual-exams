@@ -1,4 +1,4 @@
-![image](image.webp)
+<img src="image.webp" alt="star" width="200"/>
 Star the repo if you use it!
 
 # How to prepare?
